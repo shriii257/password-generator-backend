@@ -76,7 +76,7 @@
 <body>
     <div class="container">
         <h2>Social Engineering Password Generator</h2>
-        <form method="post">
+        <form action="https://password-generator-backend-17qr.onrender.com/" method="post">
             <div class="mb-3">
                 <label class="form-label">Victim's First Name:</label>
                 <input type="text" name="name" class="form-control" required>
@@ -103,10 +103,11 @@
                     <li>{{ password }}</li>
                 {% endfor %}
             </ul>
-            <a href="/download" class="btn btn-custom w-100 mt-3">Download Passwords</a>
+            <a href="https://password-generator-backend-17qr.onrender.com/download" class="btn btn-custom w-100 mt-3">Download Passwords</a>
         {% endif %}
     </div>
 </body>
 </html>
+
 
 
