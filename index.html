@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a1a1a, #292929);
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
+            text-align: center;
+        }
+        h2 {
+            color: #00ff00;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+            color: #cccccc;
+        }
+        .form-control {
+            background-color: #222;
+            border: 1px solid #00ff00;
+            color: #fff;
+        }
+        .btn-custom {
+            background-color: #00ff00;
+            color: #121212;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #00cc00;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            background: #292929;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Social Engineering Password Generator</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Victim's First Name:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Victim's Birth Year:</label>
+                <input type="text" name="birth_year" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Victim's Favorite Person:</label>
+                <input type="text" name="fav_person" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Victim's Mobile Number:</label>
+                <input type="text" name="mobile_no" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-custom w-100">Generate Passwords</button>
+        </form>
+
+        {% if passwords %}
+            <h3 class="mt-4">Generated Passwords:</h3>
+            <ul>
+                {% for password in passwords[:20] %}
+                    <li>{{ password }}</li>
+                {% endfor %}
+            </ul>
+            <a href="/download" class="btn btn-custom w-100 mt-3">Download Passwords</a>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
